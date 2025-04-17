@@ -73,3 +73,26 @@ print(attractions)
 # test error handling for destination out of scope
 add_attraction("Barcelona, Spain", ["Museu de Citade", ["museum"]])
 
+
+## Part 4: Finding the Best Places to Go
+
+# func: find attractions
+def find_attractions(destination, interests):
+  destination_index = get_destination_index(destination)
+  attractions_in_city = attractions[destination_index]
+
+  attraction_with_interest = []
+  for possible_attraction in attractions_in_city:
+    attraction_tags = possible_attraction[1]
+    for interest in interests:
+      if interest in attraction_tags:
+        attraction_with_interest.append(possible_attraction[0])
+  return attraction_with_interest
+
+
+# test function
+la_arts = find_attractions('Los Angeles, USA', ['art'])
+print(la_arts)
+
+la_arts = find_attractions('Los Angeles, USA', ['art', 'beach', 'museum'])
+print(la_arts)
