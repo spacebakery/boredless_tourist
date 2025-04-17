@@ -35,3 +35,41 @@ def get_traveler_location(traveler):
 test_destination_index = get_traveler_location(test_traveler)
 print(test_destination_index)
 
+
+## Part 3: Visiting Interesting Places
+
+# create empty attraction lists
+attractions = [list() for x in destinations]
+print(attractions)
+
+# func: add attraction
+def add_attraction(destination, attraction):
+  try:
+    destination_index = get_destination_index(destination)
+    attractions_for_destination = attractions[destination_index].append(attraction)
+
+  except ValueError:
+    # raise ValueError('Could not retrieve "{}" in list of destinations.'.format(destination))
+    pass
+
+# test function
+add_attraction('Los Angeles, USA', ['Venice Beach', ['beach']])
+print(attractions)
+
+# add more attractions
+add_attraction("Paris, France", ["the Louvre", ["art", "museum"]])
+add_attraction("Paris, France", ["Arc de Triomphe", ["historical site", "monument"]])
+add_attraction("Shanghai, China", ["Yu Garden", ["garden", "historical site"]])
+add_attraction("Shanghai, China", ["Yuz Museum", ["art", "museum"]])
+add_attraction("Shanghai, China", ["Oriental Pearl Tower", ["skyscraper", "viewing deck"]])
+add_attraction("Los Angeles, USA", ["LACMA", ["art", "museum"]])
+add_attraction("Sao Paulo, Brazil", ["Sao Paulo Zoo", ["zoo"]])
+add_attraction("Sao Paulo, Brazil", ["Patio do Colegio", ["historical site"]])
+add_attraction("Cairo, Egypt", ["Pyramids of Giza", ["monument", "historical site"]])
+add_attraction("Cairo, Egypt", ["Egyptian Museum", ["museum"]])
+
+print(attractions)
+
+# test error handling for destination out of scope
+add_attraction("Barcelona, Spain", ["Museu de Citade", ["museum"]])
+
