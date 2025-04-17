@@ -96,3 +96,32 @@ print(la_arts)
 
 la_arts = find_attractions('Los Angeles, USA', ['art', 'beach', 'museum'])
 print(la_arts)
+
+
+## Part 5: See The Parts of a City You want to See
+
+# func: get attractions for traveler
+def get_attractions_for_traveler(traveler):
+  traveler_destination = traveler[1]
+  traveler_interests = traveler[2]
+  traveler_attractions = find_attractions(traveler_destination, traveler_interests)
+
+  interests_string = "Hi "
+
+  interests_string += "{traveler_name}, we think you'll like these places around {destination}: the ".format(traveler_name=traveler[0], destination=traveler_destination)
+
+  for i in range(len(traveler_attractions)):
+    if i == 0:
+      interests_string += traveler_attractions[i]
+    else:
+      interests_string += ', the ' + traveler_attractions[i]
+
+  return interests_string
+
+# test function
+attractions_test_traveler = get_attractions_for_traveler(test_traveler)
+print(attractions_test_traveler)
+
+attractions_smills_france = get_attractions_for_traveler(['Dereck Smill', 'Paris, France', ['monument']])
+print(attractions_smills_france)
+
