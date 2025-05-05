@@ -49,7 +49,7 @@ def add_attraction(destination, attraction):
     attractions_for_destination = attractions[destination_index].append(attraction)
 
   except ValueError:
-    # raise ValueError('Could not retrieve "{}" in list of destinations.'.format(destination))
+    print('Value_error: Could not retrieve "{}" in list of destinations.'.format(destination))
     pass
 
 # test function
@@ -71,7 +71,7 @@ add_attraction("Cairo, Egypt", ["Egyptian Museum", ["museum"]])
 print(attractions)
 
 # test error handling for destination out of scope
-add_attraction("Barcelona, Spain", ["Museu de Citade", ["museum"]])
+add_attraction("Barcelona, Spain", ["Museu Nacional d'Art de Catalunya", ["museum"]])
 
 
 ## Part 4: Finding the Best Places to Go
